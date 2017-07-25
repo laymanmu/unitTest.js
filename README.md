@@ -33,17 +33,37 @@ Also I wanted to test some results of how data is displayed, make sure elements 
   unitTest.run(ClientTest)
   ```
 
-4. output looks like this:
+Output example:
   ```
   testUI:
-     Failed: nums should match
-     Failed: 1 test(s)
-   testDownloadLink:
-     Passed: 1 test(s)
-   -= Final Results =-
-     total asserts: 2
-     total passed:  1
-     total failed:  1
+    Passed: 9 test(s)
+
+  testJobDefinitionsUI:
+    Passed: 18 test(s)
+
+  testConditionsUI:
+    Passed: 8 test(s)
+
+  testMailsUI:
+    Passed: 9 test(s)
+
+  testResourcesUI:
+    Passed: 7 test(s)
+
+  testDetailsSectionUI:
+    Passed: 1 test(s)
+
+  testResultsSectionUI:
+    Passed: 3 test(s)
+
+  testOnJobDefinitionsNavItemClick:
+    Failed: threw error:
+      Cannot read property 'id' of undefined
+
+  -= Final Results =-
+    total asserts: 55
+    total passed:  55
+    total failed:  1
   ```
 
 ### Assertion functions:
@@ -53,4 +73,6 @@ Also I wanted to test some results of how data is displayed, make sure elements 
   unitTest.notEqual(value1, value2, failMessage);
   unitTest.null(value, failMessage);
   unitTest.notNull(value, failMessage);
+  unitTest.idHasClass(id, className, failMsg);
+  unitTest.idNotHasClass(id, className, failMsg);
   ```
