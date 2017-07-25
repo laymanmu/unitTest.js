@@ -3,6 +3,11 @@
 
 A single javascript file for testing your actual DOM.
 
+### Why?
+
+I wanted something simple to ensure that my client code was getting wired as expected with the DOM (no nulls).
+Also I wanted to test some results of how data is displayed, make sure elements have expected classes, etc...
+
 ### Usage:
 
 1. create a javascript object with some tests:
@@ -39,4 +44,13 @@ A single javascript file for testing your actual DOM.
      total asserts: 2
      total passed:  1
      total failed:  1
+  ```
+
+### Assertion functions:
+
+  ```javascript
+  unitTest.equal(value1, value2, failMessage);
+  unitTest.notEqual(value1, value2, failMessage);
+  unitTest.null(value, failMessage);
+  unitTest.notNull(value, failMessage);
   ```

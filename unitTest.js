@@ -14,6 +14,33 @@ var unitTest = {
     }
   },
 
+  notEqual: function(val1, val2, failMsg) {
+    unitTest.assertCount++;
+    if (val1 == val2) {
+      unitTest.fail(failMsg);
+    } else {
+      unitTest.pass();
+    }
+  },
+
+  null: function(value, failMsg) {
+    unitTest.assertCount++;
+    if (value == null) {
+      unitTest.pass();
+    } else {
+      unitTest.fail(failMsg);
+    }
+  },
+
+  notNull: function(value, failMsg) {
+    unitTest.assertCount++;
+    if (value == null) {
+      unitTest.fail(failMsg);
+    } else {
+      unitTest.pass();
+    }
+  },
+
   fail: function(failMsg) {
     unitTest.failCount++;
     console.log("  Failed: "+ failMsg);
