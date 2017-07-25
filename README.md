@@ -10,7 +10,7 @@ Also I wanted to test some results of how data is displayed, make sure elements 
 
 ### Usage:
 
-1. create a javascript object with some tests:
+1. create a javascript object with some tests (functions that begin with "test" will get called):
   ```javascript
   var ClientTest = {
     testUI: function() {
