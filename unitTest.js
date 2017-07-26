@@ -95,6 +95,7 @@ var unitTest = {
         try {
           object[key]();
         } catch(err) {
+          unitTest.assertCount++;
           unitTest.fail("threw error:", err.message);
         }
         if (origFailCount == unitTest.failCount) {

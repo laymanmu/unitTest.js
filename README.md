@@ -61,7 +61,7 @@ Output example:
       Cannot read property 'id' of undefined
 
   -= Final Results =-
-    total asserts: 55
+    total asserts: 56
     total passed:  55
     total failed:  1
   ```
