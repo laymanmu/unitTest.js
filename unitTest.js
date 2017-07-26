@@ -45,9 +45,17 @@ var unitTest = {
     }
   },
 
+  idExists: function(id, failMsg) {
+    unitTest.assertCount++;
+    var e = unitTest.getElementByIdOrFail(id, failMsg);
+    if (!e) return;
+    unitTest.pass();
+  },
+
   idHasClass: function(id, className, failMsg) {
     unitTest.assertCount++;
-    var e = document.getElementById(id);
+    var e = unitTest.getElementByIdOrFail(id, failMsg);
+    if (!e) return;
     var classes = e.className.split(" ");
     for (var i=0; i<classes.length; i++) {
       if (classes[i] == className) {
@@ -61,14 +69,37 @@ var unitTest = {
 
   idNotHasClass: function(id, className, failMsg) {
     unitTest.assertCount++;
-    var e = document.getElementById(id);
+    var e = unitTest.getElementByIdOrFail(id, failMsg);
+    if (!e) return;
     var classes = e.className.split(" ");
     for (var i=0; i<classes.length; i++) {
       if (classes[i] == className) {
         var assertMsg = "element with id '"+ id +"' does have class "+ className;
-        unitTest.fail(failMsg);
+        unitTest.fail(failMsg, assertMsg);
         return;
       }
+    }
+    unitTest.pass();
+  },
+
+  idDisplayIs: function(id, displayStyle, failMsg) {
+    unitTest.assertCount++;
+    var e = unitTest.getElementByIdOrFail(id, failMsg);
+    if (!e) return;
+    if (e.style.display != displayStyle) {
+      var assertMsg = "element with id '"+ id +"' does not have display set to '"+ displayStyle +"'";
+      unitTest.fail(failMsg, assertMsg);
+    }
+    unitTest.pass();
+  },
+
+  idDisplayIsNot: function(id, displayStyle, failMsg) {
+    unitTest.assertCount++;
+    var e = unitTest.getElementByIdOrFail(id, failMsg);
+    if (!e) return;
+    if (e.style.display == displayStyle) {
+      var assertMsg = "element with id '"+ id +"' has display set to '"+ displayStyle +"'";
+      unitTest.fail(failMsg, assertMsg);
     }
     unitTest.pass();
   },
@@ -113,6 +144,16 @@ var unitTest = {
     console.log("  total asserts: "+ unitTest.assertCount);
     console.log("  total passed:  "+ unitTest.passCount);
     console.log("  total failed:  "+ unitTest.failCount);
+  },
+
+  getElementByIdOrFail: function(id, failMsg) {
+    var e = document.getElementById(id);
+    if (!e) {
+      var assertMsg = "can't find element with id '"+ id +"'";
+      unitTest.fail(failMsg, assertMsg);
+      return null;
+    }
+    return e;
   }
 
 };

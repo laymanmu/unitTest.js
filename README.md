@@ -73,6 +73,9 @@ Also I wanted to test some results of how data is displayed, make sure elements 
   unitTest.notEqual(value1, value2, failMessage);
   unitTest.null(value, failMessage);
   unitTest.notNull(value, failMessage);
-  unitTest.idHasClass(id, className, failMsg);
-  unitTest.idNotHasClass(id, className, failMsg);
+  unitTest.idExists(id, failMessage);
+  unitTest.idHasClass(id, singleClassName, failMessage);
+  unitTest.idNotHasClass(id, singleClassName, failMessage);
+  unitTest.idDisplayIs(id, displayStyle, failMessage);    //<- for example, displayStyle = 'none' 
+  unitTest.idDisplayIsNot(id, displayStyle, failMessage);
   ```
