@@ -33,7 +33,7 @@ Also I wanted to test some results of how data is displayed, make sure elements 
   unitTest.run(ClientTest)
   ```
 
-Output example:
+### Output example:
   ```
   testUI:
     Passed: 9 test(s)
